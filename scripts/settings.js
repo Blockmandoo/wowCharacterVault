@@ -1,13 +1,8 @@
-// let professionName = "Dragon Isles"; // What prefix or sufix is used to denote the expansion variant of profession
 let professionName = "Khaz Algar"; // What prefix or sufix is used to denote the expansion variant of profession
-// let tierSets = /Heartfire Sentinel's Authority|Irons of the Onyx Crucible|Lurking Specter's Shadeweave|Risen Nightmare's Gravemantle|Scales of the Awakened|Screaming Torchfiend's Brutality|Sinister Savant's Cursethreads|Stormwing Harrier's Camouflage|Strands of the Autumn Blaze|The Furnace Seraph's Verdict|Vision of the Greatwolf Outcast|Wayward Chronomancer's Clockwork|Wrappings of the Waking Fist/;
 let tierSets = /Destroyer's Scarred Wards|Entombed Seraph's Radiance|Exhumed Centurion's Relics|Gatecrasher's Fortitude|Husk of the Hypogeal Nemesis|K'areshi Phantom's Bindings|Lightless Scavenger's Necessities|Mane of the Greatlynx|Rites of the Hexflame Coven|Shards of Living Luster|Sparks of Violet Rebirth|Warsculptor's Masterwork|Waves of the Forgotten Reservoir/;
 let craftedUnique = /Embellished/;
-// let uniqueGem = /Illimited/;
 let uniqueGem = /Blasphemite/;
-// let maxLevel = 70;
 let maxLevel = 80;
-// let gearBreakpoints = [425, 475, 495, 510, 525];
 let gearBreakpoints = [535, 585, 605, 620, 635];
 let maxTabs = 5;
 let reportFetches = true;
@@ -87,6 +82,16 @@ let professionScores = {
     value: 50,
   },
 };
+
+/*
+// Dragonflight
+let professionName = "Dragon Isles"; // What prefix or sufix is used to denote the expansion variant of profession
+let tierSets = /Heartfire Sentinel's Authority|Irons of the Onyx Crucible|Lurking Specter's Shadeweave|Risen Nightmare's Gravemantle|Scales of the Awakened|Screaming Torchfiend's Brutality|Sinister Savant's Cursethreads|Stormwing Harrier's Camouflage|Strands of the Autumn Blaze|The Furnace Seraph's Verdict|Vision of the Greatwolf Outcast|Wayward Chronomancer's Clockwork|Wrappings of the Waking Fist/;
+let craftedUnique = /Embellished/;
+let uniqueGem = /Illimited/;
+let maxLevel = 70;
+let gearBreakpoints = [425, 475, 495, 510, 525];
+*/
 
 // This will fill in more information that can be inferred from the data above
 professionScores.max = 0;

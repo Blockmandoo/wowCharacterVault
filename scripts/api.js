@@ -116,11 +116,11 @@ async function getCharacterProfessions(characterName, serverName, region = "us")
   }
 
   regex = /Herbalism|Mining|Skinning/;
-  if (output.profession1) output.profession1.score = regex.test(output.profession1.name) ? output.profession1.level * professionScore.gathering.multiplier : output.profession1.level * professionScore.main.multiplier;
-  if (output.profession2) output.profession2.score = regex.test(output.profession2.name) ? output.profession2.level * professionScore.gathering.multiplier : output.profession2.level * professionScore.main.multiplier;
-  if (output.profession3) output.profession3.score = output.profession3.level * professionScore.cooking.multiplier;
-  if (output.profession4) output.profession4.score = output.profession4.level * professionScore.fishing.multiplier;
-  if (output.profession5) output.profession5.score = output.profession5.level * professionScore.archaeology.multiplier;
+  if (output.profession1) output.profession1.score = regex.test(output.profession1.name) ? output.profession1.level * professionScores.gathering.multiplier : output.profession1.level * professionScores.main.multiplier;
+  if (output.profession2) output.profession2.score = regex.test(output.profession2.name) ? output.profession2.level * professionScores.gathering.multiplier : output.profession2.level * professionScores.main.multiplier;
+  if (output.profession3) output.profession3.score = output.profession3.level * professionScores.cooking.multiplier;
+  if (output.profession4) output.profession4.score = output.profession4.level * professionScores.fishing.multiplier;
+  if (output.profession5) output.profession5.score = output.profession5.level * professionScores.archaeology.multiplier;
   output.score = Math.floor((output.profession1?.score || 0) + (output.profession2?.score || 0) + (output.profession3?.score || 0) + (output.profession4?.score || 0) + (output.profession5?.score || 0));
 
   return output || {};
