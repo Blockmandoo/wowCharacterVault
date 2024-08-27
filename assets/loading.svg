@@ -1,0 +1,88 @@
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 10">
+  <defs>
+    <style>
+      .main {
+        animation: 16s linear infinite rotate, 1s linear 1 fadeIn;
+        transform-origin: center;
+      }
+      .tl {
+        animation: 26s ease-in-out infinite rainbow, 4s ease-in-out infinite tl;
+        transform-origin: 4.75px 4.75px;
+      }
+      .tr {
+        animation: 26s ease-in-out infinite rainbow, 4s ease-in-out infinite tr;
+        transform-origin: 5.25px 4.75px;
+      }
+      .br {
+        animation: 26s ease-in-out infinite rainbow, 4s ease-in-out infinite br;
+        transform-origin: 5.25px 5.25px;
+      }
+      .bl {
+        animation: 26s ease-in-out infinite rainbow, 4s ease-in-out infinite bl;
+        transform-origin: 4.75px 5.25px;
+      }
+      @keyframes fadeIn {
+        from {opacity: 0}
+        to {opacity: 1}
+      }
+      @keyframes tl {
+        0% {transform: scale(100%, 100%)}
+        25% {transform: scale(0%, 100%)}
+        50% {transform: scale(0%, 0%)}
+        75% {transform: scale(100%, 0%)}
+        100% {transform: scale(100%, 100%)}
+      }
+      @keyframes tr {
+        0% {transform: scale(0%, 100%)}
+        25% {transform: scale(100%, 100%)}
+        50% {transform: scale(100%, 0%)}
+        75% {transform: scale(0%, 0%)}
+        100% {transform: scale(0%, 100%)}
+      }
+      @keyframes br {
+        0% {transform: scale(0%, 0%)}
+        25% {transform: scale(100%, 0%)}
+        50% {transform: scale(100%, 100%)}
+        75% {transform: scale(0%, 100%)}
+        100% {transform: scale(0%, 0%)}
+      }
+      @keyframes bl {
+        0% {transform: scale(100%, 0%)}
+        25% {transform: scale(0%, 0%)}
+        50% {transform: scale(0%, 100%)}
+        75% {transform: scale(100%, 100%)}
+        100% {transform: scale(100%, 0%)}
+      }
+      @keyframes rotate {
+        0% {
+          transform: rotate(360deg);
+        }
+        100% {
+          transform: rotate(0deg);
+        }
+      }
+      @keyframes rainbow {
+        0% {fill: #f48cba;}
+        8% {fill: #c41e3a;}
+        15% {fill: #ff7c0a;}
+        23% {fill: #fff468;}
+        31% {fill: #aad372;}
+        38% {fill: #00ff98;}
+        46% {fill: #33937f;}
+        54% {fill: #3fc7eb;}
+        62% {fill: #0070dd;}
+        69% {fill: #a330c9;}
+        77% {fill: #8788ee;}
+        85% {fill: #ffffff;}
+        92% {fill: #c69b6d;}
+        100% {fill: #f48cba;}
+      }
+    </style>
+  </defs>
+  <g class="main">
+    <rect class="tl" x="1.46" y="1.46" width="3.29" height="3.29"/>
+    <rect class="tr" x="5.25" y="1.46" width="3.29" height="3.29"/>
+    <rect class="br" x="5.25" y="5.25" width="3.29" height="3.29"/>
+    <rect class="bl" x="1.46" y="5.25" width="3.29" height="3.29"/>
+  </g>
+</svg>

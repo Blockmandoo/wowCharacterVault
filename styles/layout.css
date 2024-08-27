@@ -1,0 +1,286 @@
+body,
+body * {
+  margin: auto;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  z-index: 1;
+}
+
+body dialog {
+  position: fixed;
+  padding: 50px 30px 30px;
+  top: 200px;
+  max-width: 450px;
+  max-height: 50vh;
+  z-index: 100;
+}
+
+body dialog#characterAdd, body dialog#characterEdit {
+  max-width: 550px;
+}
+
+body dialog#batchAdd {
+  max-width: 600px;
+}
+
+body dialog h1,
+body dialog h2,
+body dialog h3,
+body dialog h4,
+body dialog h5 {
+  margin-bottom: 22px;
+}
+
+body dialog .error {
+  text-align: center;
+}
+
+body dialog div:has(input, button) {
+  display: grid;
+  grid-gap: 6px;
+}
+
+body dialog div:has(input, button).split1 {
+  grid-template-columns: auto 1fr;
+}
+
+body dialog div:has(input, button).split3 {
+  grid-template-columns: auto 1fr auto 1fr auto 1fr;
+}
+
+body dialog div:has(input, button).characterInput {
+  grid-template-columns: auto 1fr auto 1fr auto 3.5em;
+}
+
+body dialog div:has(input, button).playtime {
+  grid-template-areas: ". label days hours minutes .";
+  grid-template-columns: 1fr auto 80px 80px 80px 1fr;
+}
+
+body dialog div:has(input, button).playtime label {
+  grid-area: label;
+}
+
+body dialog div:has(input, button).playtime input[name="days"] {
+  grid-area: days;
+}
+
+body dialog div:has(input, button).playtime input[name="hours"] {
+  grid-area: hours;
+}
+
+body dialog div:has(input, button).playtime input[name="minutes"] {
+  grid-area: minutes;
+}
+
+body dialog div:has(input, button).playtime ~ p {
+  text-align: center;
+}
+
+body dialog div:has(input, button).compactCharacterInput {
+  grid-template-columns: 2fr 2fr 1fr 80px 80px 80px;
+  grid-gap: 8px;
+  margin: 8px;
+}
+
+body dialog div:has(input, button).submit {
+  grid-template-areas: ". submit";
+  grid-template-columns: 1fr auto;
+  margin-bottom: 0;
+}
+
+body dialog div:has(input, button).submit:has([name="delete"]) {
+  grid-template-areas: ". delete submit";
+  grid-template-columns: 1fr auto auto;
+}
+
+body dialog div:has(input, button).submit button {
+  height: 24px;
+  width: 70px;
+}
+
+body dialog div:has(input, button).submit button[name="submit"] {
+  grid-area: submit;
+}
+
+body dialog div:has(input, button).submit button[name="delete"] {
+  grid-area: delete;
+}
+
+body dialog div:has(input, button) input {
+  width: 100%;
+}
+
+body dialog div:has(input, button) input ~ label {
+  margin-left: 6px;
+}
+
+body dialog div.playtime ~ p {
+  margin-top: -12px;
+}
+
+body dialog div.bottom {
+  display: grid;
+  grid-template-areas: "more submit";
+  grid-template-columns: 1fr 1fr;
+  margin-bottom: 0;
+}
+
+body dialog div.bottom details {
+  grid-area: more;
+  width: 100%;
+  height: 3.5em;
+}
+
+body dialog div.bottom .submit {
+  grid-area: submit;
+}
+
+body dialog div,
+body dialog p {
+  margin: 16px 0;
+}
+
+body dialog textarea {
+  width: 100%;
+}
+
+body dialog textarea[name="notes"], body dialog textarea[name="import"] {
+  resize: vertical;
+}
+
+body dialog details summary {
+  margin-bottom: 6px;
+}
+
+body dialog details p {
+  margin: 0;
+}
+
+body header {
+  text-align: center;
+  padding: 30px 0;
+  max-width: 700px;
+}
+
+body main {
+  padding-bottom: 100px;
+  display: grid;
+  grid-template-areas: ". nav ." ". loading ." ". table .";
+  grid-template-columns: 1fr auto 1fr;
+}
+
+body main nav {
+  text-align: center;
+  grid-area: nav;
+  margin: 6px auto;
+  display: flex;
+  gap: 20px;
+}
+
+body main nav > * {
+  display: inline-block;
+}
+
+body main #loading {
+  grid-area: loading;
+}
+
+body main #loading img {
+  height: 60px;
+}
+
+body main #mainTable {
+  grid-area: table;
+  max-width: calc(100vw - 500px);
+}
+
+body main #mainTable #tabs {
+  display: flex;
+  transform: translate(14px, 1px);
+}
+
+body main #mainTable #tabs > * {
+  margin: 0 2px;
+  padding: 6px 10px 6px 16px;
+  display: flex;
+  grid-gap: 12px;
+}
+
+body main #mainTable #tabs > *#addTab {
+  padding: 6px 8px;
+}
+
+body main #mainTable #tabs .close-tab {
+  transform: translateY(-1px);
+}
+
+body main #mainTable .editPopup {
+  position: absolute;
+  transform: translate(-100%, 14px);
+  padding: 8px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+body main #mainTable .editPopup.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+body main #mainTable .editPopup p {
+  cursor: pointer;
+}
+
+body main #mainTable table thead {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+}
+
+body main #mainTable table img[alt="icon"] {
+  height: 2.5em;
+  margin-bottom: -4px;
+}
+
+body main #mainTable table th {
+  padding: 8px 8px;
+}
+
+body main #mainTable table td {
+  padding: 0 8px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-height: 2.5em;
+}
+
+body main #mainTable table td:has(img[alt="dots"]) {
+  -webkit-user-select: none;
+  user-select: none;
+  cursor: pointer;
+  transition: 0.4s;
+}
+
+body main #mainTable table td:has(img[alt="dots"]):hover {
+  filter: brightness(2);
+}
+
+body main #mainTable table td:has(img[alt="icon"]) {
+  padding: 0;
+}
+
+body main #mainTable table td[data-filter-id="links"] img {
+  max-width: 1.1em;
+}
+
+body main table:not(:has(th, td)) ~ .addCharacterButton {
+  display: none;
+}
+
+body main .addCharacterButton {
+  text-align: center;
+  margin-top: 10px;
+}

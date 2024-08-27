@@ -1,0 +1,40 @@
+@mixin classColor($class, $color) {
+  .#{$class}-bg {
+    background: rgba($color, 0.15);
+  }
+  .#{$class}-text {
+    color: $color;
+  }
+}
+
+@include classColor("paladin", #f48cba);
+@include classColor("deathKnight", #c41e3a);
+@include classColor("druid", #ff7c0a);
+@include classColor("rogue", #fff468);
+@include classColor("hunter", #aad372);
+@include classColor("monk", #00ff98);
+@include classColor("evoker", #33937f);
+@include classColor("mage", #3fc7eb);
+@include classColor("shaman", #0070dd);
+@include classColor("demonHunter", #a330c9);
+@include classColor("warlock", #8788ee);
+@include classColor("priest", #ffffff);
+@include classColor("warrior", #c69b6d);
+
+@include classColor("horde", #c41e3a);
+@include classColor("alliance", #0070dd);
+// @include classColor("neutral", #6e6e6e);
+@include classColor("neutral", #7eae01);
+
+@include classColor("tank", #5286f9);
+@include classColor("healer", #54ff5d);
+@include classColor("dps", #ff5758);
+
+@include classColor("poor", #9d9d9d);
+@include classColor("common", #ffffff);
+@include classColor("uncommon", #1eff00);
+@include classColor("rare", #0070dd);
+@include classColor("epic", #a335ee);
+@include classColor("legendary", #ff8000);
+@include classColor("artifact", #e6cc80);
+@include classColor("heirloom ", #00ccff);

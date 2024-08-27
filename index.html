@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <!-- <meta name="color-scheme" content="dark light" /> -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&family=Playfair+Display:wght@400;700&family=Lora:wght@400;700&family=Raleway:wght@400;700&family=Montserrat:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link href="styles\layout.css" rel="stylesheet" />
+    <link href="styles\style.css" rel="stylesheet" />
+    <script src="scripts\functions.js"></script>
+    <script src="scripts\settings.js"></script>
+    <script src="scripts\api.js"></script>
+    <script src="scripts\script.js"></script>
+    <script src="scripts\versionControl.js"></script>
+    <title>The Character Vault</title>
+  </head>
+  <body>
+    <header>
+      <h1>The Character Vault</h1>
+    </header>
+
+    <datalist id="us-servers"></datalist>
+    <datalist id="eu-servers"></datalist>
+    <datalist id="tw-servers"></datalist>
+    <datalist id="kr-servers"></datalist>
+
+    <dialog id="clientKey">
+      <h1>API Client Key</h1>
+      <p class="error"></p>
+      <p>We need your API client key to grab data. These can be found at <a href="https://develop.battle.net/access/clients" target="_blank">Battle.net API Access</a>. Either make a new client there or use one you've already made.</p>
+
+      <div id="clientId" class="split1">
+        <label for="clientId">Client ID:</label>
+        <input type="password" name="clientId" value="" />
+      </div>
+
+      <div id="clientSecret" class="split1">
+        <label for="clientSecret">Client Secret:</label>
+        <input type="password" name="clientSecret" value="" />
+      </div>
+      <p>This is only stored on your computer. We do not and will not ever save it on our end.</p>
+
+      <div class="submit">
+        <button type="button" name="submit">Submit</button>
+      </div>
+    </dialog>
+
+    <dialog id="characterAdd">
+      <h1>Add a Character</h1>
+      <p>Add your own characters to be tracked, or you could add someone else's.</p>
+      <p class="error"></p>
+
+      <div class="characterInput">
+        <label for="name">Name:</label>
+        <input type="text" name="name" value="" />
+        <label for="realm">Realm:</label>
+        <input type="text" list="us-servers" name="realm" value="" />
+        <label for="region">Region:</label>
+        <select name="region">
+          <option value="US">US</option>
+          <option value="EU">EU</option>
+          <option value="TW">TW</option>
+          <option value="KR">KR</option>
+        </select>
+      </div>
+
+      <div class="playtime">
+        <label for="days">Playtime:</label>
+        <input type="number" name="days" value="" placeholder="Days" min="0" />
+        <input type="number" name="hours" value="" placeholder="Hours" min="0" />
+        <input type="number" name="minutes" value="" placeholder="Minutes" min="0" />
+      </div>
+      <p>Be as accurate as you want with playtime (optional)</p>
+
+      <div class="notes">
+        <label for="days">Notes:</label>
+        <textarea name="notes" rows="4" placeholder="This can be whatever you like, or nothing"></textarea>
+      </div>
+
+      <div class="bottom">
+        <details class="alternatives">
+          <summary>Add more characters</summary>
+          <p class="batchAdd">Add in bulk</p>
+          <p class="importAdd">Import csv</p>
+        </details>
+
+        <div class="submit">
+          <button type="button" name="submit">Submit</button>
+        </div>
+      </div>
+    </dialog>
+
+    <dialog id="characterEdit">
+      <h1>Edit a Character</h1>
+      <p class="error"></p>
+      <input type="hidden" name="prev-name" value="" />
+      <input type="hidden" name="prev-realm" value="" />
+      <input type="hidden" name="prev-region" value="" />
+      <div class="characterInput">
+        <label for="name">Name:</label>
+        <input type="text" name="name" value="" />
+        <label for="realm">Realm:</label>
+        <input type="text" list="servers" name="realm" value="" />
+        <label for="region">Region:</label>
+        <select name="region">
+          <option value="US">US</option>
+          <option value="EU">EU</option>
+          <option value="TW">TW</option>
+          <option value="KR">KR</option>
+        </select>
+      </div>
+
+      <div class="playtime">
+        <label for="days">Playtime:</label>
+        <input type="number" name="days" value="" placeholder="Days" min="0" />
+        <input type="number" name="hours" value="" placeholder="Hours" min="0" />
+        <input type="number" name="minutes" value="" placeholder="Minutes" min="0" />
+      </div>
+      <p>Be as accurate as you want with playtime (optional)</p>
+
+      <div class="notes">
+        <label for="days">Notes:</label>
+        <textarea name="notes" rows="4" placeholder="This can be whatever you like (optional)"></textarea>
+      </div>
+
+      <div class="submit">
+        <button type="button" name="delete">Remove</button>
+        <button type="button" name="submit">Submit</button>
+      </div>
+    </dialog>
+
+    <dialog id="batchAdd">
+      <h1>Add Characters in Bulk</h1>
+      <div class="compactCharacterInput">
+        <input type="text" name="name" value="" placeholder="Name" />
+        <input type="text" list="us-servers" name="realm" value="" placeholder="Realm" />
+        <select name="region">
+          <option value="US">US</option>
+          <option value="EU">EU</option>
+          <option value="TW">TW</option>
+          <option value="KR">KR</option>
+        </select>
+        <input type="number" name="days" value="" placeholder="Days" min="0" />
+        <input type="number" name="hours" value="" placeholder="Hours" min="0" />
+        <input type="number" name="minutes" value="" placeholder="Minutes" min="0" />
+      </div>
+
+      <div class="bottom">
+        <details class="alternatives">
+          <summary>Add more characters</summary>
+          <p class="characterAdd">Add single Character</p>
+          <p class="importAdd">Import csv</p>
+        </details>
+
+        <div class="submit">
+          <button type="button" name="submit">Submit</button>
+        </div>
+      </div>
+    </dialog>
+
+    <dialog id="importAdd">
+      <h1>Import Characters</h1>
+      <p>Import characters in csv format</p>
+      <p>Don't do this unless you know what you're doing or you got an export from somewhere</p>
+      <div class="characterImport">
+        <textarea name="import" rows="8" placeholder="name,server,region,played,notes"></textarea>
+      </div>
+
+      <div class="bottom">
+        <details class="alternatives">
+          <summary>Add more characters</summary>
+          <p class="characterAdd">Add single Character</p>
+          <p class="batchAdd">Add in bulk</p>
+        </details>
+
+        <div class="submit">
+          <button type="button" name="submit">Submit</button>
+        </div>
+      </div>
+    </dialog>
+
+    <main>
+      <nav>
+        <h3 data-page-id="home">Home</h3>
+        <h3 data-page-id="professions">Professions</h3>
+        <h3 data-page-id="class_stats">Class Stats</h3>
+        <h3 data-page-id="race_stats">Race Stats</h3>
+        <h3 data-page-id="gear">Gear</h3>
+        <h3 data-page-id="raid" class="wip">Raid</h3>
+        <h3 data-page-id="mythic" class="wip">Mythic+</h3>
+        <h3 data-page-id="collections" class="wip">Collections</h3>
+      </nav>
+      <div id="loading"><img src="assets\loading.svg" alt="" /></div>
+      <div id="mainTable">
+        <p class="addCharacterButton">+ Add Character</p>
+        <section id="tabs">
+          <!-- <div class="tab">Tabs not found :(</div> -->
+        </section>
+        <div class="editPopup">
+          <p>Something went wrong</p>
+        </div>
+        <table>
+          <thead></thead>
+          <tbody></tbody>
+        </table>
+        <p class="addCharacterButton">+ Add Character</p>
+      </div>
+    </main>
+  </body>
+</html>
