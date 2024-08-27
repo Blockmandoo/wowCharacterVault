@@ -2,7 +2,7 @@
 
 This is a website that utilizes the Blizzard API to scan characters in bulk so you can keep track of all of your characters, your guild or just some random other people's characters. It was originally made to replace a spreadsheet I was maintaining for my characters and another I was maintaining for my guild to keep track of everyone's progress for gearing up.
 
-# Plans:
+# Functionality and Plans:
 
 This website can track a lot of different things currently, and has plans for several more things
 
