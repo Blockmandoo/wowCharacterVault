@@ -67,7 +67,7 @@ let translateFilters = {
   professionScore: "Profession Score",
   lastOnline: "Last Online",
   playtime: "Playtime",
-  links: "Links",
+  links: "External Links",
   notes: "Notes",
   cooking: "Cooking",
   fishing: "Fishing",
@@ -1014,7 +1014,12 @@ function buildTable() {
           if (columns.includes("region")) body += `<td data-filter-id="region">${character?.region}</td>`;
           body += `<td colspan="${spread}">Character not found</td>`;
           if (columns.includes("playtime")) body += `<td data-filter-id="playtime">${character?.played ? convertTime(character?.played, "minutes") : ""}</td>`;
-          if (columns.includes("links")) body += `<td data-filter-id="links">${character?.links}</td>`;
+          if (columns.includes("links"))
+            body += `<td data-filter-id="links">
+              </a><a href="https://worldofwarcraft.blizzard.com/en-us/character/${character.region.toLowerCase()}/${character.server.toLowerCase()}/${character.name.toLowerCase()}" target="_blank">
+                <img src="https://images.blz-contentstack.com/v3/assets/blt72f16e066f85e164/bltc3d5627fa96394bf/world-of-warcraft.webp" alt="WoW Armory" title="WoW Armory" />
+              </a>
+            </td>`;
           if (columns.includes("notes")) body += `<td data-filter-id="notes">${character?.notes || ""}</td>`;
         }
       });
