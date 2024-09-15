@@ -222,7 +222,8 @@ async function getCharacterRaids(characterName, serverName, region = "us") {
 
   // !! THIS NEEDS TO BE LOOKED AT WHEN THERES ONE RAID OUT !!
   let output;
-  let currentSeason = profile?.expansions?.filter((a) => a.expansion.name == "Current Season");
+  // let currentSeason = profile?.expansions?.filter((a) => a.expansion.name == "Current Season");
+  let currentSeason = profile?.expansions?.filter((a) => a.expansion.name == "The War Within");
   if (currentSeason?.length > 0) {
     output = currentSeason[0].instances.map((instance) => {
       let mapOutput = {name: instance.instance.name};

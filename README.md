@@ -27,6 +27,7 @@ This website can track a lot of different things currently, and has plans for se
 - [x] Health level, main stats, secondary stats, and tertiary stats
 - [ ] Highest level mythic+ key for each dungeon
 - [ ] Mythic+ keys done this and last week
+- [ ] Renown levels
 - [ ] Highest parses for raid bosses
 - [ ] Possibly collections tracking such as for mounts
 

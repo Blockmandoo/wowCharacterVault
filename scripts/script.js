@@ -971,11 +971,12 @@ function buildTable() {
           if (columns.includes("mythicScore")) body += `<td data-filter-id="mythicScore" ${character.mythic_plus ? `style="color:${character.mythic_plus?.color}"` : ""}>${round(character.mythic_plus?.rating) || ""}</td>`;
           ["LFR", "Normal", "Heroic", "Mythic"].forEach((difficulty, i) => {
             if (columns.includes("raid" + difficulty)) {
+              let nullCell = "";
               body += `<td data-filter-id="raid${difficulty}">`;
               difficulty = difficulty.toLowerCase();
               body +=
                 character.raid_progress
-                  ?.map((prog) => `<span style="color:${prog[difficulty] ? colorScale(prog[difficulty].match(/\d+/g)[0] / prog[difficulty].match(/\d+/g)[1]) : colorScale(0)}">${prog[difficulty] || "-"}</span>`)
+                  ?.map((prog) => `<span style="color:${prog[difficulty] ? colorScale(prog[difficulty].match(/\d+/g)[0] / prog[difficulty].match(/\d+/g)[1]) : colorScale(0)}">${prog[difficulty] || nullCell}</span>`)
                   ?.join(" ") || "";
               body += "</td>";
             }
